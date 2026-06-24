@@ -1,0 +1,30 @@
+<?php
+
+require __DIR__ . '/../../vendor/autoload.php';
+
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/../../');
+$dotenv->load();
+
+
+// Pega do .env
+$endereco = $_ENV['DB_HOST'];
+$porta    = $_ENV['DB_PORT'];
+$banco    = $_ENV['DB_DATABASE'];
+$usuario  = $_ENV['DB_USERNAME'];
+$senha    = $_ENV['DB_PASSWORD'];
+$db = "pgsql";
+
+try {
+    $pdo = new PDO("$db:host=$endereco;port=$porta;dbname=$banco", $usuario, $senha, [
+        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
+    ]);
+
+    $pdo->exec("SET search_path TO reciclagem");
+
+    //echo "Conectado ao banco de dados com sucesso!";
+} catch (PDOException $e) {
+    //echo "Falha ao conectar ao banco de dados.<br/>";
+    die($e->getMessage());
+}
+
+?>

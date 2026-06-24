@@ -1,0 +1,7 @@
+# Ignorar arquivos de configuração de ambiente (credenciais e senhas)
+.env
+.env.local
+.env.*.local
+
+# Ignorar a pasta de dependências do gerenciador de pacotes (Composer, etc.)
+vendor/
