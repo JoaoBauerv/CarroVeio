@@ -19,7 +19,7 @@ try {
         PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
     ]);
 
-    $pdo->exec("SET search_path TO reciclagem");
+    $pdo->exec("SET search_path TO public");
 
     //echo "Conectado ao banco de dados com sucesso!";
 } catch (PDOException $e) {
