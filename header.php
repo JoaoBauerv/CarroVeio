@@ -195,6 +195,14 @@
       <a href="/nova-manutencao.php" class="btn btn-nova-manut ms-lg-2 mt-2 mt-lg-0">
         <i class="bi bi-plus-circle"></i> Nova manutenção
       </a>
+
+      <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
+        <li class="nav-item">
+          <a class="nav-link nav-link-cv" href="<?php echo $url_base; ?>/logout.php">
+            <i class="bi bi-box-arrow-right"></i> Sair
+          </a>
+        </li>
+      </ul>
     </div>
     <?php } ?>
 
