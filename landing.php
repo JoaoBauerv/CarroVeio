@@ -19,7 +19,7 @@
                 </p>
 
                 <div class="mt-4">
-                    <a href="login.php" class="btn btn-primary btn-lg mr-2">
+                    <a href="<?= $url_base ?>/index.php?secao=login" class="btn btn-primary btn-lg mr-2">
                         Entrar
                     </a>
 

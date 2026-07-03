@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 require __DIR__ . '/includes/db/conn.php';
 
@@ -11,10 +12,9 @@ $arquivo2 = $secaoE["1"] ?? '';
 $arquivo3 = $secaoE["2"] ?? '';
 $arquivo4 = $secaoE["3"] ?? '';
 $arquivo5 = $secaoE["4"] ?? '';
-var_dump($arquivo);
 //$_SESSION['usuario'] = 1;
 
-$url_base = 'http://localhost/CarroVeio';
+$url_base = $_ENV['BASE_URL'];
 ?>
 
 <!-- Bootstrap 5 -->
