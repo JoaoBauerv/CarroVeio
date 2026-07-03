@@ -23,6 +23,8 @@
           </p>
         </div>
 
+        <?php if(!empty($_SESSION['usuario'])){ ?>
+
         <!-- Coluna 2 – Navegação -->
         <div class="col-6 col-md-2 offset-md-1">
           <h6 class="footer-heading">Navegação</h6>
@@ -44,6 +46,7 @@
             <li><a href="/configuracoes.php"><i class="bi bi-gear"></i> Configurações</a></li>
           </ul>
         </div>
+        
 
         <!-- Coluna 4 – Próxima revisão -->
         <div class="col-12 col-md-3">
@@ -69,6 +72,8 @@
             </a>
           </div>
         </div>
+
+        <?php } ?>
 
       </div>
     </div>
