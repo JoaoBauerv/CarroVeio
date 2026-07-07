@@ -15,6 +15,9 @@ $arquivo5 = $secaoE["4"] ?? '';
 //$_SESSION['usuario'] = 1;
 
 $url_base = $_ENV['BASE_URL'];
+
+include 'includes/middleware.php';
+
 ?>
 
 <!-- Bootstrap 5 -->
