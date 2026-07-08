@@ -83,7 +83,7 @@ const URL_CADASTRAR_CARRO = '<?php echo $url_base; ?>/includes/ajax/cadastrar_ca
 const URL_MARCAS = '<?php echo $url_base; ?>/includes/ajax/marcas.php';
 const URL_MODELOS = '<?php echo $url_base; ?>/includes/ajax/modelos.php';
 
-// ---------------- Carrega as marcas ao abrir a página ----------------
+// Carrega as marcas ao abrir a página 
 async function carregarMarcas() {
     try {
         const resp = await fetch(URL_MARCAS);
@@ -103,7 +103,7 @@ async function carregarMarcas() {
     }
 }
 
-// ---------------- Carrega os modelos quando a marca muda ----------------
+// Carrega os modelos quando a marca muda 
 selectMarca.addEventListener('change', async () => {
     const codigoMarca = selectMarca.value;
 
@@ -159,7 +159,7 @@ formCarro.addEventListener('submit', async (e) => {
     try {
         const formData = new FormData(formCarro);
 
-        // Envia o NOME da marca (não o código), já que é isso que salvamos no banco
+        // envia o nome da marca para salvar
         const nomeMarca = selectMarca.options[selectMarca.selectedIndex].dataset.nome;
         formData.set('marca', nomeMarca);
 

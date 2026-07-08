@@ -35,7 +35,7 @@ if ($quilometragem !== '' && (!ctype_digit($quilometragem) || (int) $quilometrag
     $erros[] = 'Quilometragem inválida.';
 }
 
-// ---- Validação de marca/modelo contra a API FIPE (evita valores forjados via requisição manual) ----
+// verificação de modelo e marca via api
 if ($marca !== '' && $modelo !== '') {
     $marcaValida = false;
 
@@ -82,10 +82,8 @@ if ($marca !== '' && $modelo !== '') {
                     $erros[] = 'Modelo não reconhecido para essa marca.';
                 }
             }
-            // Se a API de modelos falhar, não bloqueia o cadastro - evita depender 100% de disponibilidade externa
         }
     }
-    // Se a API de marcas falhar, não bloqueia o cadastro - evita depender 100% de disponibilidade externa
 }
 
 $caminhoFoto = null;
@@ -108,7 +106,7 @@ if (isset($_FILES['foto']) && $_FILES['foto']['error'] !== UPLOAD_ERR_NO_FILE) {
             $extensao   = $tiposPermitidos[$tipoReal];
             $nomeArquivo = uniqid('carro_', true) . '.' . $extensao;
 
-            // Pasta física onde o arquivo é salvo no servidor
+            //pasta fisica para salvar a foto
             $pastaDestino = __DIR__ . '/../../img/carros/';
 
             if (!is_dir($pastaDestino)) {
@@ -116,7 +114,7 @@ if (isset($_FILES['foto']) && $_FILES['foto']['error'] !== UPLOAD_ERR_NO_FILE) {
             }
 
             if (move_uploaded_file($_FILES['foto']['tmp_name'], $pastaDestino . $nomeArquivo)) {
-                // Caminho relativo salvo no banco (usado depois com $url_base)
+                //caminho para salvar no bd
                 $caminhoFoto = 'img/carros/' . $nomeArquivo;
             } else {
                 $erros[] = 'Não foi possível salvar a foto. Tente novamente.';
