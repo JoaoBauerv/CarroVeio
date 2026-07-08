@@ -169,7 +169,7 @@
     <div class="collapse navbar-collapse" id="navMenu">
       <ul class="navbar-nav me-auto mt-2 mt-lg-0">
         <li class="nav-item">
-          <a class="nav-link nav-link-cv active" href="index.php">
+          <a class="nav-link nav-link-cv <?php if(empty($_REQUEST['secao'])){ echo "active";} ?>" href="index.php">
             <i class="bi bi-house"></i> Início
           </a>
         </li>
@@ -197,10 +197,30 @@
       </a>
 
       <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
-        <li class="nav-item">
-          <a class="nav-link nav-link-cv" href="<?php echo $url_base; ?>/logout.php">
-            <i class="bi bi-box-arrow-right"></i> Sair
+        <li class="nav-item dropdown">
+          <a class="nav-link nav-link-cv dropdown-toggle"
+            href="#"
+            id="userMenu"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false">
+            <i class="bi bi-person-circle"></i>
+            <?php echo htmlspecialchars($_SESSION['user_nome'] ?? 'Usuário'); ?>
           </a>
+
+          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userMenu">
+            <li>
+              <a class="dropdown-item" href="<?php echo $url_base; ?>/index.php?secao=perfil">
+                <i class="bi bi-person"></i> Meu Perfil
+              </a>
+            </li>
+            <li><hr class="dropdown-divider"></li>
+            <li>
+              <a class="dropdown-item" href="<?php echo $url_base; ?>/logout.php">
+                <i class="bi bi-box-arrow-right"></i> Sair
+              </a>
+            </li>
+          </ul>
         </li>
       </ul>
     </div>
